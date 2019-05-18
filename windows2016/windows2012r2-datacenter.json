@@ -1,0 +1,60 @@
+{
+  "builders": [
+    {
+      "type": "vsphere-iso",
+      "vcenter_server":      "dev-vctr-01.lv9inframbo.com",
+      "username":            "administrator@vsphere.local",
+      "password":            "YourvSpherePasswordHere!",
+      "insecure_connection": "true",
+      
+	    "vm_name": "windows2012r2-datacenter-packer-template-1",
+      "cluster": "IaaS",
+      "host": "lv9-dev-esxi-01.lv9inframbo.com",
+      "Datastore":"lv9cdot03_dev_templates",
+      
+      "guest_os_type": "windows8Server64Guest",
+
+      "winrm_timeout": "12h",
+      "shutdown_timeout": "1h",
+      "communicator": "winrm",
+      "winrm_username": "administrator",
+      "winrm_password": "YourPasswordHere!",
+	    "convert_to_template": true,
+      
+      "CPUs":             4,
+      "RAM":              16384,
+      "RAM_reserve_all": false,
+      
+	    "disk_controller_type":  "pvscsi",
+	    "disk_size":        32768,
+	    "disk_thin_provisioned": true,
+      
+      "network": "DEV-IAC-DEMO-1018_vDS",
+		  "network_card": "vmxnet3",
+		
+      "iso_paths": [
+        "[lv9_iso] ISOs/SW_DVD5_Windows_Svr_Std_and_DataCtr_2012_R2_64Bit_English_Core_MLF_X19-05182-11.ISO",
+        "[lv9_iso] ISOs/VMware-Tools-Jan-2018/windows.iso"
+           ],
+      "floppy_files": [
+            "{{template_dir}}/setup/",
+            "./drivers/pvscsi/amd64",
+            "./scripts/microsoft-updates.bat",
+            "./scripts/win-updates.ps1",
+            "./scripts/winrm-start.ps1"
+          ]
+      }
+    ],
+    "provisioners": [
+      
+    ]
+  }
+
+
+
+          
+
+
+ 
+
+
