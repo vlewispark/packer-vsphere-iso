@@ -7,7 +7,7 @@
       "password":            "YourvSpherePasswordHere!",
       "insecure_connection": "true",
       
-	    "vm_name": "windows2012r2-datacenter-packer-template",
+	    "vm_name": "windows2012r2-datacenter-packer-template-1",
       "cluster": "IaaS",
       "host": "lv9-dev-esxi-01.lv9inframbo.com",
       "Datastore":"lv9cdot03_dev_templates",
